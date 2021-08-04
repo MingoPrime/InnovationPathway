@@ -19,16 +19,10 @@ import Form3 from './briefForm3';
 export default function BriefScreen() {
 
   const [isSelected, setSelection] = useState(false);
+  const [isSelected1, setSelection1] = useState(false);
   const [isSelected2, setSelection2] = useState(false);
   const navigation = useNavigation();
-  const [Yes, setYes] = useState(0)
-  const affList = ["Yes", "No"];
-  const yesOrNo = (index) => { setYes((preindex) => index) };
 
-  const [Yes1, setYes1] = useState(0)
-  const yesOrNo1 = (index1) => { setYes1((preindex) => index1) };
-
-  const addQ = (props) => { props ? <Text>Why  ?</Text> : <Text> bruh</Text> }
 
   const [modalOpen, setModalOpen] = useState(false);
   const addtoData = () => { setModalOpen(false) };
@@ -67,38 +61,31 @@ export default function BriefScreen() {
         </View>
 
         <Card containerStyle={{ backgroundColor: '#74aae5', width: 365 }}>
-          <View style={{ borderRadius: 3, borderColor: 'grey' }}>
 
-            <Text style={{ paddingLeft: 5 }}> Does my Program meet criteria for priority review?</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={styles.checkboxContainer}>
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ marginTop: 15 }}>Yes</Text>
+                <CheckBox
+                  checked={!isSelected1}
+                  onPress={() => { setSelection1(!isSelected1) }}
+                  style={styles.checkbox}
+                />
+              </View>
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ marginTop: 15 }}>No</Text>
+                <CheckBox
+                  checked={isSelected1}
+                  onPress={() => { setSelection1(!isSelected1) }}
+                  style={styles.checkbox}
+                />
+              </View>
 
-            <View style={{ flexDirection: "row" }}>
-
-              {affList.map((data, index) => (
-                <TouchableOpacity
-                  key={data}
-                  style={{
-                    flexDirection: "row",
-                    margin: 10,
-                    flex: 3,
-                    justifyContent: "space-evenly",
-                  }}
-                  onPress={yesOrNo.bind(this, index)}
-                >
-                  <MaterialIcons
-                    name={
-                      index === Yes
-                        ? "radio-button-checked"
-                        : "radio-button-unchecked"
-                    }
-                    size={18}
-                    color='#ccc'
-                  />
-                  <Text style={styles.termsText}>{data}</Text>
-                </TouchableOpacity>
-              ))}
             </View>
-
+            <Text style={styles.label, { padding: 8, width: 250, marginTop: 30 }}>Does my Program meet criteria for priority review?</Text>
           </View>
+
+
         </Card>
 
         <Modal visible={modalOpen1} animationType='slide'>
@@ -121,7 +108,7 @@ export default function BriefScreen() {
             style={styles.modalToggle}
           />
         </View>
-        <Card containerStyle={{ backgroundColor: '#74aae5', width:365 }}>
+        <Card containerStyle={{ backgroundColor: '#74aae5', width: 365 }}>
           <View style={{ flexDirection: 'row' }}>
             <View style={styles.checkboxContainer}>
               <View style={{ flexDirection: 'row' }}>
@@ -232,7 +219,7 @@ export default function BriefScreen() {
           backgroundColor: 'green', borderRadius: 3, borderWidth: 3,
           borderColor: 'green', marginBottom: 30, marginTop: 10, width: 200
         }}
-          onPress={() => navigation.navigate("Idea Submitted")}>
+          onPress={() => navigation.navigate("File Upload")}>
           <Text style={{ alignSelf: 'center' }}>Submit</Text></TouchableOpacity> :
           <TouchableOpacity
             style={{

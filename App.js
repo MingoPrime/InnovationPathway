@@ -9,6 +9,8 @@ import HomeScreen from './screens/HomeScreen';
 import thankYouPage from './screens/thankScreen';
 import about from './global';
 import BriefScreen2 from './screens/briefscreen2';
+import BriefScreen3 from './screens/briefscreen3';
+import FileUpload from './screens/fileupload';
 
 
 const Stack = createStackNavigator();
@@ -51,12 +53,14 @@ export default class App extends React.Component {
                 },
                 headerTitleStyle: {
                   textAlign: 'center',
+                  marginRight: 55,
                   color: '#333',
                   fontSize: 20,
                   fontWeight: 'bold',
                   letterSpacing: 1,
                   color: 'white'
                 }
+
               }} />
           <Stack.Screen name="Your Idea (page 2)" component={BriefScreen1} mode='modal'
             options={
@@ -68,6 +72,7 @@ export default class App extends React.Component {
                 headerTitleStyle: {
                   textAlign: 'center',
                   color: '#333',
+                  marginRight: 55,
                   fontSize: 20,
                   fontWeight: 'bold',
                   letterSpacing: 1,
@@ -85,6 +90,7 @@ export default class App extends React.Component {
                 headerTitleStyle: {
                   textAlign: 'center',
                   color: '#333',
+                  marginRight: 55,
                   fontSize: 20,
                   fontWeight: 'bold',
                   letterSpacing: 1,
@@ -92,6 +98,44 @@ export default class App extends React.Component {
                 }
               }}
           />
+          <Stack.Screen name="Your Idea (page 4)" component={BriefScreen3} mode='modal'
+            options={
+              {
+                title: "Checklist (page 4)",
+                headerStyle: {
+                  backgroundColor: '#3177c5'
+                },
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  color: '#333',
+                  marginRight: 55,
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  letterSpacing: 1,
+                  color: 'white'
+                }
+              }}
+          />
+
+          <Stack.Screen name="File Upload" component={FileUpload} mode='modal'
+            options={
+              {
+                title: "File Upload",
+                headerStyle: {
+                  backgroundColor: '#3177c5'
+                },
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  color: '#333',
+                  marginRight: 55,
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  letterSpacing: 1,
+                  color: 'white'
+                }
+              }}
+          />
+
           <Stack.Screen name="Idea Submitted" component={thankYouPage} mode='modal'
             options={
               {
@@ -102,6 +146,7 @@ export default class App extends React.Component {
                 headerTitleStyle: {
                   textAlign: 'center',
                   color: '#333',
+                  marginRight: 55,
                   fontSize: 20,
                   fontWeight: 'bold',
                   letterSpacing: 1,

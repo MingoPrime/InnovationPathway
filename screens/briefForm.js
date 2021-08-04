@@ -10,7 +10,7 @@ import * as yup from 'yup';
 
 const schema = yup.object({
     programTitle: yup.string().required().min(3),
-    brandName: yup.string().required().min(3),
+    brandName: yup.string().required(),
     pownerName: yup.string().required(),
     pownerFunction: yup.string().required(),
     pownerReportingManager: yup.string().required(),
